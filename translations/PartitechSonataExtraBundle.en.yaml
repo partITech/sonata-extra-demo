@@ -1,0 +1,213 @@
+sonata-extra:
+  approve:
+    log_message: "User <b>[user]</b> [action] the [entity]"
+    approval_message: "Waiting for approval."
+    approved_by_message: "<br> Approved by <b>[user]</b> on [date]."
+    cancel_modification: "Are you sure you want to cancel this modification?"
+    cancel_modification_btn: "Cancel Modification"
+    approve_create: "Are you sure you want to approve this creation?"
+    approve_delete: "Are you sure you want to approve this deletion?"
+    approve_update: "Are you sure you want to approve this modification?"
+    approve_create_btn: "Approve Creation"
+    approve_delete_btn: "Approve Deletion"
+    approve_update_btn: "Approve Modification"
+    purge_all_btn: "Purge all pending modifications"
+    confirm_purge_all: "Are you sure you want to purge all pending modifications?"
+
+    success_message:
+      create: "Creation must be approved to take effect."
+      update: "Update must be approved to take effect."
+      delete: "Deletion must be approved to take effect."
+      all_applied: "All modifications have been applied."
+      create_applied: "Creation has been applied."
+      revert_successfully: "Modification reverted successfully."
+      all_revert_applied: "All modifications reverted successfully."
+      purge: "Approved modifications have been purged successfully."
+    error_message:
+      journal_not_found: 'Change log not found.'
+      journal_not_found_for_activity: 'No change log found for this activity.'
+      entity_not_found: 'Entity not found.'
+      token: "Invalid token, please try again."
+
+  redirect_admin:
+    import_btn: "Import your redirections in CSV format"
+    import_title: "Import your redirections in CSV format"
+    success:
+      import: "Import successful"
+
+  faq:
+    manage_question: "Manage questions"
+
+  article_admin:
+    retour: "Return"
+    revisions: "Revisions"
+    global_settings: "Global Settings"
+    publish_settings: "Publish Settings"
+    published_at: "Published on"
+    author: "Author"
+    status: "Status"
+    published: "Published"
+    draft: "Draft"
+    title: "Title"
+    content: "Content"
+    id: "ID"
+    actions: "Actions"
+    edit: "Edit"
+    delete: "Delete"
+    editor_gutenberg: "Editor: Gutenberg"
+    editor_ckeditor: "Editor: CKEditor"
+    editor_textarea: "Editor: Textarea"
+    editor_markdown: "Editor: Markdown"
+    label_gutenberg: "Gutenberg"
+    label_ckeditor: "CKEditor"
+    label_textarea: "Textarea"
+    label_markdown: "Markdown"
+    msg_editor_change: "Editor has been changed"
+    seo_proposal: "SEO Proposal"
+    seo_modal_title: "Calculate optimal SEO parameters for this content"
+    seo_modal_excerpt: "Summary (excerpt)"
+    seo_modal_seo_title: "Meta Title"
+    seo_modal_seo_description: "Meta Description"
+    seo_modal_seo_seokeywords: "Meta Keywords"
+    seo_modal_seo_slug: "SLUG"
+    seo_modal_calculate_btn: "Calculate"
+    seo_modal_use_btn: "Use"
+    seo_modal_error: "There seems to be an issue with the SEO suggestion service.<br> Please try again."
+
+  editor_admin:
+    editor_gutenberg: "Editor: Gutenberg"
+    editor_ckeditor: "Editor: CKEditor"
+    editor_textarea: "Editor: Textarea"
+    editor_markdown: "Editor: Markdown"
+    label_gutenberg: "Gutenberg"
+    label_ckeditor: "CKEditor"
+    label_textarea: "Textarea"
+    label_markdown: "Markdown"
+    msg_editor_change: "Editor has been changed"
+
+  page_admin:
+    tree_view:
+      create_translation_popin: "Choose the source language for your page translation"
+      create: "Create page for site "
+      edit: "Edit page for site"
+    compose:
+      preview_btn: "Preview Page"
+
+  translation:
+    selector_title: "Pages for the site"
+    create_entity: "Create a record for the site "
+    create: "Create translation for the site "
+    edit: "Edit translation for the site "
+    header_list_label: "Translations"
+
+  block_contact:
+    title: "Title"
+    first_name: "First Name"
+    use_field_first_name: "Use First Name field"
+    first_name_label: "First Name field label"
+    last_name: "Last Name"
+    use_field_last_name: "Use Last Name field"
+    last_name_label: "Last Name field label"
+    company_name: "Company Name"
+    use_field_company_name: "Use Company Name field"
+    company_name_label: "Company Name field label"
+    address: "Address"
+    use_field_address: "Use Address field"
+    address_label: "Address field label"
+    email: "Email"
+    use_field_email: "Use Email field"
+    email_label: "Email field label"
+    phone: "Phone"
+    use_field_phone: "Use Phone field"
+    phone_label: "Phone field label"
+    use_field_additional_information: "Use Additional Information field"
+    additional_information: "Additional Information"
+    additional_information_label: "Additional Information field label"
+    required_field: "Required field?"
+    send_me_a_copy: "Offer sending a copy of the message?"
+    send_me_a_copy_label: "Label for sending a copy of the message question"
+    send_me_a_copy_default_message: "Send me a copy"
+    send_to_label: "Send an internal copy of the message?"
+    send_to: "Enter destination email"
+    submit_label: "Submit button label"
+
+    mail_confirmation: "User confirmation email template"
+    mail_subject: "Email subject sent"
+    mail_admin_notification: "Administrator confirmation email template"
+    mail_signature: "Email signature"
+
+    confirmation_message_label: "Confirmation message"
+    confirmation_message: |
+      <div class="container">
+        <div class="contact_confirmation">
+          <h4 class="alert-heading">Thank you for contacting us!</h4>
+          <p>Your message has been successfully sent. We have received your request and will respond as soon as possible.</p>
+          <p class="mb-0">In the meantime, feel free to browse our website for more information.</p>
+        </div>
+      </div>
+    confirmation_template_label: "Confirmation template"
+    confirmation_javascript_label: "Confirmation page JavaScript"
+
+    firstName_not_blank: "First name is required."
+    lastName_not_blank: "Last name is required."
+    companyName_not_blank: "Company name is required."
+    address_not_blank: "Address is required."
+    email_not_blank: "Email address is required."
+    email_invalid: "Email address is not valid."
+    phone_not_blank: "Phone number is required."
+    phone_invalid: "Phone number is not valid."
+    additionalInformation_not_blank: "Additional information field is required."
+    submitLabel: "Send"
+
+    confirmation:
+      title: "Confirmation of Your Contact Request"
+      heading: "Confirmation of Your Contact Request"
+      greeting: "Hello"
+      received: "We have received your contact request with the following information:"
+      firstName: "First Name"
+      lastName: "Last Name"
+      email: "Email"
+      phone: "Phone"
+      message: "Message"
+      confirmation: "This is a confirmation that we have received your message. A member of our team will contact you shortly."
+      thankYou: "Thank you for contacting us."
+      regards: "Sincerely"
+
+    admin-notification:
+      title: "New Contact Request"
+      heading: "New Contact Request"
+      introduction: "You have received a new contact request with the following information:"
+      procedure: "Please follow up on this request in accordance with our internal procedures."
+
+
+  search:
+    submit_label: "Submit"
+    label_submit_label: "Submit button label"
+    placeholder: "Placeholder"
+    result_title: "Results"
+    no_article_found_for_this_search: "No articles found for this search."
+
+  blog:
+    section_article_title: "Section"
+    section_category_list_title: "Section"
+    section_tag_list_title: "Section"
+    no_article_found_for_this_category: "No articles found for this category."
+    no_article_found_for_this_tag: "No articles found for this tag."
+    write_by: "Written by"
+    publish_date: "on"
+    read_more: "Read More "
+    categories: "Category: "
+    tags: "Tags: "
+    btn_read_more: "Read More"
+    share_this_article: "Share this article"
+    about_the_author: "About the author"
+
+  category:
+    label_saved: "Category saved successfully"
+    label_error: "There is an error"
+    tree_catalog_title: "Edit Categories"
+    label_delete: "Delete"
+    label_modify: "Modify"
+    label_enabled: "Enable"
+    label_disabled: "Disable"
+    label_action: "Action"

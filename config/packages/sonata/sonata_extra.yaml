@@ -1,0 +1,111 @@
+parameters:
+  open_ai_api_key: '%env(OPEN_AI_API_KEY)%'
+  open_ai_api_model: '%env(OPEN_AI_API_MODEL)%'
+  sonata_page_excluded_blocks:
+    - 'sonata.media.block.gallery_list'
+    - 'sonata.media.block.feature_media'
+    - 'sonata.media.block.gallery'
+    - 'sonata.block.service.rss'
+    - 'app.block.HelloWorld'
+
+  # List here all the entities that are out of the approval scope.
+  sonata_approve_excluded_entities:
+    - 'App\Entity\BackofficeUser'
+    - 'App\Entity\SonataMediaMedia'
+    - 'App\\Entity\\BackofficeUser'
+    - 'App\Entity\SonataPageBlock'
+
+  sonata_approve_log_message: "L'utilisateur <b>[user]</b> a [action] l'élément [entity]"
+
+  # put here all the menu items of the group where
+  # the item with pending modifications is located.
+  # this prevents the menu from being duplicated when the menu is expanded.
+  sonata_approve_menu:
+    - 'admin_app_approval'
+    - 'admin_app_adminactivitylog'
+    - 'admin_app_sonatamediamedia'
+    - 'admin_app_backofficeuser'
+    - 'admin_app_sonatapagesite'
+
+partitech_sonata_extra:
+  page:
+    realtime_preview: true #enable realtime preview on page compose
+  blog:
+    category:
+      max_per_page: 20
+    tags:
+      max_per_page: 20
+
+  content_security_policy:
+    object-src:
+      - 'none'
+    script-src:
+      - "'self'"
+      - "'unsafe-inline'"
+      - "'unsafe-eval'"
+      - 'https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.11/beautify-html.js'
+      - 'https://unpkg.com/@popperjs/core@2'
+      - 'https://unpkg.com/tippy.js@6'
+      - 'https://cdnjs.cloudflare.com/'
+      - 'https://cdn.jsdelivr.net/npm/jspanel4@4.15.0/dist/jspanel.js'
+      - 'https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js'
+      - 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'
+      - 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js'
+      - 'https://code.jquery.com/jquery-3.5.1.slim.min.js'
+      - 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js'
+      - 'https://unpkg.com/react@18/umd/react.production.min.js'
+      - 'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js'
+      - 'https://www.google.com/recaptcha/api.js'
+      - 'www.gstatic.com'
+      - 'https://www.googletagmanager.com/gtm.js'
+      - 'https://www.googletagmanager.com/gtag/js'
+      - 'https://adservice.google.com'
+      - 'https://region1.google-analytics.com/g/collect'
+      - 'googleads.g.doubleclick.net'
+
+    style-src:
+      - "'self'"
+      - "'unsafe-inline'"
+      - 'fonts.googleapis.com'
+      - 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toaster/5.1.0/css/bootstrap-toaster.min.css'
+      - 'https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.css'
+      - 'https://cdnjs.cloudflare.com/'
+      - 'https://cdn.jsdelivr.net/npm/jspanel4@4.15.0/dist/jspanel.css'
+      - 'https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css'
+      - 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'
+      - 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css'
+      - 'https://cdn.jsdelivr.net/npm/file-icon-vectors@1.0.0/dist/file-icon-classic.min.css'
+      - 'https://cdn.jsdelivr.net/npm/file-icon-vectors@1.0.0/dist/file-icon-square-o.min.css'
+      - 'https://cdn.jsdelivr.net/npm/file-icon-vectors@1.0.0/dist/file-icon-vivid.min.css'
+    font-src:
+      - "'self'"
+      - "'unsafe-inline'"
+      - 'fonts.gstatic.com'
+      - 'maxcdn.bootstrapcdn.com'
+
+
+  smart_service:
+    translate_on_create_page: false # activate translation through api on create new page (ie. sonata Page admin)
+    translate_on_create_translation: false # activate translation through api on create new translation (ie. all the translation entity that have the #[Translatable] annotation )
+    seo_proposal_on_article: true #activate the Seo proposal on article
+    seo_proposal_on_page: true #activate the Seo proposal on page
+    #set to null if you don't want to use translation api
+    default_provider: open_ai
+    #set specific providers for translation and SEO
+    translation_provider: open_ai
+    seo_provider: open_ai
+
+    providers:
+      open_ai:
+        class: Partitech\SonataExtra\SmartService\Provider\OpenAiProvider
+
+        # read more about apiKey here : https://platform.openai.com/account/api-keys
+        api_key: '%open_ai_api_key%'
+        model: '%open_ai_api_model%'
+          # princing here : https://openai.com/pricing
+          # https://help.openai.com/en/articles/7102672-how-can-i-access-gpt-4
+          #possible values :
+          #Newer models (2023–)	: gpt-4, gpt-4-32k,  gpt-3.5-turbo etc : https://platform.openai.com/docs/models/gpt-4see
+          #Updated base models (2023) : 	babbage-002, davinci-002
+          #Legacy models (2020–2022) :	text-davinci-003, text-davinci-002
+        max_token_per_request: 200

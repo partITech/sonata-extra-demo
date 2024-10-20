@@ -1,0 +1,9 @@
+notre_adresse: "Our Address"
+block_vous-avez-un-projet_titre: "Do You Have a Project?"
+block_vous-avez-un-projet_text: "Jean-François or Thomas will get back to you as soon as possible"
+block_vous-avez-un-projet_contact: "<a href=\"/en/contact\">To contact us<b> click here!</b></a>"
+block_blog_list_tag_title: Tag Cloud
+block_blog_list_category_title: Categories
+block_blog_list_search_title: Search
+block_blog_list_search_placeholder: Search..
+block_blog_list_search_btn: Send

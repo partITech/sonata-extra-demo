@@ -1,0 +1,214 @@
+sonata-extra:
+  approve:
+    log_message: "Người dùng <b>[user]</b> đã [action] phần tử [entity]"
+    approval_message: "Đang chờ xác nhận."
+    approved_by_message: "<br> Được phê duyệt bởi <b>[user]</b> vào ngày [date]."
+    cancel_modification: "Bạn có chắc chắn muốn hủy bỏ sửa đổi này không?"
+    cancel_modification_btn: "Hủy bỏ sửa đổi"
+    approve_create: "Bạn có chắc chắn muốn phê duyệt tạo mới này không?"
+    approve_delete: "Bạn có chắc chắn muốn phê duyệt xóa này không?"
+    approve_update: "Bạn có chắc chắn muốn phê duyệt sửa đổi này không?"
+    approve_create_btn: "Phê duyệt tạo mới"
+    approve_delete_btn: "Phê duyệt xóa"
+    approve_update_btn: "Phê duyệt sửa đổi"
+    purge_all_btn: "Làm sạch tất cả các sửa đổi đang chờ"
+    confirm_purge_all: "Bạn có chắc chắn muốn làm sạch tất cả các sửa đổi đang chờ không?"
+
+    success_message:
+      create: "Tạo mới phải được phê duyệt để được xem xét."
+      update: "Sửa đổi phải được phê duyệt để được xem xét."
+      delete: "Xóa phải được phê duyệt để được xem xét."
+      all_applied: "Tất cả các sửa đổi đã được áp dụng."
+      create_applied: "Tạo mới đã được áp dụng."
+      revert_successfully: "Sửa đổi đã được hủy thành công."
+      all_revert_applied: "Tất cả các sửa đổi đã được hủy thành công."
+      purge: "Các sửa đổi đã được phê duyệt đã được làm sạch thành công."
+    error_message:
+      journal_not_found: 'Không tìm thấy nhật ký sửa đổi.'
+      journal_not_found_for_activity: 'Không tìm thấy nhật ký sửa đổi cho hoạt động này.'
+      entity_not_found: 'Không tìm thấy thực thể.'
+      token: "Token không hợp lệ, vui lòng thử lại."
+
+  redirect_admin:
+    import_btn: "Nhập chuyển hướng của bạn dưới dạng CSV"
+    import_title: "Nhập chuyển hướng của bạn dưới dạng CSV"
+    success:
+      import: "Nhập thành công"
+
+  faq:
+    manage_question: "Quản lý câu hỏi"
+
+  article_admin:
+    retour: "Trở về"
+    revisions: "Sửa đổi"
+    global_settings: "Cài đặt toàn cầu"
+    publish_settings: "Cài đặt xuất bản"
+    published_at: "Đã xuất bản vào"
+    author: "Tác giả"
+    status: "Trạng thái"
+    published: "Đã xuất bản"
+    draft: "Bản nháp"
+    title: "Tiêu đề"
+    contenu: "Nội dung"
+    content: "Nội dung"
+    id: "ID"
+    actions: "Hành động"
+    edit: "Chỉnh sửa"
+    delete: "Xóa"
+    editor_gutenberg: "Trình soạn thảo: Gutenberg"
+    editor_ckeditor: "Trình soạn thảo: Ckeditor"
+    editor_textarea: "Trình soạn thảo: Textearea"
+    editor_markdown: "Trình soạn thảo: Markdown"
+    label_gutenberg: "Gutenberg"
+    label_ckeditor: "Ckeditor"
+    label_textarea: "Textearea"
+    label_markdown: "Markdown"
+    msg_editor_change: "Trình soạn thảo đã được thay đổi"
+    seo_proposal: "Đề xuất SEO"
+    seo_modal_title: "Tính toán thông số SEO tối ưu cho nội dung này"
+    seo_modal_excerpt: "Tóm tắt (excerpt)"
+    seo_modal_seo_title: "Tiêu đề Meta"
+    seo_modal_seo_description: "Mô tả Meta"
+    seo_modal_seo_seokeywords: "Từ khóa Meta"
+    seo_modal_seo_slug: "SLUG"
+    seo_modal_calculate_btn: "Tính toán"
+    seo_modal_use_btn: "Sử dụng"
+    seo_modal_error: "Có vẻ như có sự cố với dịch vụ đề xuất SEO.<br> Vui lòng thử lại tính toán."
+
+  editor_admin:
+    editor_gutenberg: "Trình soạn thảo: Gutenberg"
+    editor_ckeditor: "Trình soạn thảo: Ckeditor"
+    editor_textarea: "Trình soạn thảo: Textearea"
+    editor_markdown: "Trình soạn thảo: Markdown"
+    label_gutenberg: "Gutenberg"
+    label_ckeditor: "Ckeditor"
+    label_textarea: "Textearea"
+    label_markdown: "Markdown"
+    msg_editor_change: "Trình soạn thảo đã được thay đổi"
+
+  page_admin:
+    tree_view:
+      create_translation_popin: "Chọn ngôn ngữ nguồn cho việc dịch trang của bạn"
+      create: "Tạo trang cho trang web "
+      edit: "Chỉnh sửa trang cho trang web"
+    compose:
+      preview_btn: "Xem trước trang"
+
+  translation:
+    selector_title: "Trang cho trang web"
+    create_entity: "Tạo bản ghi cho trang web "
+    create: "Tạo bản dịch cho trang web "
+    edit: "Chỉnh sửa bản dịch cho trang web "
+    header_list_label: "Bản dịch"
+
+  block_contact:
+    title: "Tiêu đề"
+    first_name: "Tên"
+    use_field_first_name: "Sử dụng trường tên"
+    first_name_label: "Nhãn trường tên"
+    last_name: "Họ"
+    use_field_last_name: "Sử dụng trường họ"
+    last_name_label: "Nhãn trường họ"
+    company_name: "Tên công ty"
+    use_field_company_name: "Sử dụng trường tên công ty"
+    company_name_label: "Nhãn trường tên công ty"
+    address: "Địa chỉ"
+    use_field_address: "Sử dụng trường địa chỉ"
+    address_label: "Nhãn trường địa chỉ"
+    email: "Email"
+    use_field_email: "Sử dụng trường email"
+    email_label: "Nhãn trường email"
+    phone: "Điện thoại"
+    use_field_phone: "Sử dụng trường điện thoại"
+    phone_label: "Nhãn trường điện thoại"
+    use_field_additional_information: "Sử dụng trường thông tin bổ sung"
+    additional_information: "Thông tin bổ sung"
+    additional_information_label: "Nhãn trường thông tin bổ sung"
+    required_field: "Trường bắt buộc?"
+    send_me_a_copy: "Đề xuất gửi một bản sao của tin nhắn?"
+    send_me_a_copy_label: "Nhãn câu hỏi gửi một bản sao của tin nhắn"
+    send_me_a_copy_default_message: "Gửi cho tôi một bản sao"
+    send_to_label: "Gửi một bản sao nội bộ của tin nhắn?"
+    send_to: "Nhập email đích"
+    submit_label: "Nhãn nút gửi"
+
+    mail_confirmation: "Mẫu email xác nhận người dùng"
+    mail_subject: "Chủ đề email gửi đi"
+    mail_admin_notification: "Mẫu email xác nhận quản trị viên"
+    mail_signature: "Chữ ký email"
+
+    confirmation_message_label: "Thông báo xác nhận"
+    confirmation_message: |
+      <div class="container">
+        <div class="contact_confirmation">
+          <h4 class="alert-heading">Cảm ơn bạn đã liên hệ với chúng tôi!</h4>
+          <p>Tin nhắn của bạn đã được gửi thành công. Chúng tôi đã nhận được yêu cầu của bạn và sẽ phản hồi trong thời gian sớm nhất.</p>
+          <p class="mb-0">Trong thời gian chờ đợi, bạn có thể duyệt trang web của chúng tôi để biết thêm thông tin.</p>
+        </div>
+      </div>
+    confirmation_template_label: "Mẫu xác nhận"
+    confirmation_javascript_label: "Trang xác nhận JavaScript"
+
+    firstName_not_blank: "Tên là trường bắt buộc."
+    lastName_not_blank: "Họ là trường bắt buộc."
+    companyName_not_blank: "Tên công ty là trường bắt buộc."
+    address_not_blank: "Địa chỉ là trường bắt buộc."
+    email_not_blank: "Địa chỉ email là trường bắt buộc."
+    email_invalid: "Địa chỉ email không hợp lệ."
+    phone_not_blank: "Số điện thoại là trường bắt buộc."
+    phone_invalid: "Số điện thoại không hợp lệ."
+    additionalInformation_not_blank: "Trường thông tin bổ sung là trường bắt buộc."
+    submitLabel: "Gửi"
+
+    confirmation:
+      title: "Xác nhận yêu cầu liên hệ của bạn"
+      heading: "Xác nhận yêu cầu liên hệ của bạn"
+      greeting: "Xin chào"
+      received: "Chúng tôi đã nhận được yêu cầu liên hệ của bạn với các thông tin sau:"
+      firstName: "Tên"
+      lastName: "Họ"
+      email: "Email"
+      phone: "Điện thoại"
+      message: "Tin nhắn"
+      confirmation: "Đây là xác nhận rằng chúng tôi đã nhận được tin nhắn của bạn. Một thành viên trong đội ngũ của chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất."
+      thankYou: "Cảm ơn bạn đã liên hệ với chúng tôi."
+      regards: "Trân trọng"
+
+    admin-notification:
+      title: "Yêu cầu liên hệ mới"
+      heading: "Yêu cầu liên hệ mới"
+      introduction: "Bạn đã nhận được một yêu cầu liên hệ mới với các thông tin sau:"
+      procedure: "Vui lòng xử lý yêu cầu này theo các thủ tục nội bộ của chúng tôi."
+
+
+  search:
+    submit_label: "Gửi"
+    label_submit_label: "Nhãn nút gửi"
+    placeholder: "Chỗ trống"
+    result_title: "Kết quả"
+    no_article_found_for_this_search: "Không tìm thấy bài viết nào cho tìm kiếm này."
+
+  blog:
+    section_article_title: "Mục"
+    section_category_list_title: "Mục"
+    section_tag_list_title: "Mục"
+    no_article_found_for_this_category: "Không tìm thấy bài viết nào cho danh mục này."
+    no_article_found_for_this_tag: "Không tìm thấy bài viết nào cho thẻ này."
+    write_by: "Viết bởi"
+    publish_date: "vào ngày"
+    read_more: "Đọc thêm "
+    categories: "Danh mục: "
+    tags: "Thẻ: "
+    btn_read_more: "Đọc thêm"
+    share_this_article: "Chia sẻ bài viết này"
+    about_the_author: "Về tác giả"
+
+  category:
+    label_saved: "Danh mục đã được lưu trữ thành công"
+    label_error: "Có lỗi xảy ra"
+    tree_catalog_title: "Chỉnh sửa danh mục"
+    label_delete: "Xóa"
+    label_modify: "Chỉnh sửa"
+    label_enabled: "Kích hoạt"
+    label_disabled: "Vô hiệu hóa"
+    label_action: "Hành động"

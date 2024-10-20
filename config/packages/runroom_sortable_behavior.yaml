@@ -1,0 +1,5 @@
+runroom_sortable_behavior:
+  # position_handler can be any service id that implements the PositionHandlerInterface
+#  position_handler: Runroom\SortableBehaviorBundle\Service\GedmoPositionHandler # or Runroom\SortableBehaviorBundle\Service\ORMPositionHandler if gedmo is not found
+#  position_field:
+#    default: position

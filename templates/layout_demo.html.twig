@@ -1,0 +1,124 @@
+{% extends 'base_layout_demo.html.twig' %}
+
+{% block sonata_page_head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' id='google-fonts-css' href='https://fonts.googleapis.com/css?family=Open Sans:700|Noto Sans:regular|Limelight|Lato:400,700|Poppins:300,400,500,600,700|Noto+Sans:400,400italic,700,700italic&ver=1.0.0' type='text/css' media='all' />
+{% endblock %}
+{% block sonata_page_container %}
+
+
+    <header class="container-fluid bg-light p-3">
+        <div class="row">
+            <div class="col-2">
+                <a href="//{{ page.site.host }}{{ page.site.relativePath }}" rel="homepage">
+                    <img alt="partITech" src="{{ asset('themes/sonata-extra-demo/img/logo.png') }}" width="50">
+                    <span class="screen-reader-text">partITech</span>
+                </a>
+
+            </div>
+
+            <div class="col-9">
+
+{#                {{ sonata_block_render({#}
+{#                    'type': 'Partitech\\SonataMenu\\block\\SonataMenuBlockService',#}
+{#                    'settings': {#}
+{#                        'menu': 1,#}
+{#                        'template': '@PartitechSonataMenu/Blocks/menu_default.html.twig'#}
+{#                    }#}
+{#                })#}
+{#                }}#}
+
+                {{ sonata_page_render_container('header') }}
+
+
+            </div>
+            <div class="col-1">
+                <div class="language-container">
+                    {{
+                    sonata_block_render({ 'type': 'Partitech\\SonataExtra\\Block\\LanguageSelectorBlockService',
+                        'settings': {
+                            'style_url': '/themes/partitech/css/language_switcher.css'
+                        }})
+                    }}
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="container-fluid bg-primary text-white p-3">
+        <div class="row">
+            <div class="col-12">
+                {{ sonata_page_render_container('content_top') }}
+            </div>
+        </div>
+    </section>
+
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-12">
+                {{ sonata_page_render_container('content') }}
+            </div>
+        </div>
+    </main>
+
+    <section class="container-fluid bg-secondary text-white p-3">
+        <div class="row">
+            <div class="col-12">
+                {{ sonata_page_render_container('content_bottom') }}
+            </div>
+        </div>
+    </section>
+
+    <footer class="container-fluid bg-dark text-white p-3">
+        <div class="row">
+            <div class="col-12">
+                {{ sonata_page_render_container('content_bottom') }}
+            </div>
+            <div class="col-12 text-center">
+            <a href="//{{ page.site.host }}{{ page.site.relativePath }}" rel="homepage">
+                <img alt="partITech" src="{{ asset('themes/sonata-extra-demo/img/logo.png') }}" width="50">
+            </a>
+                <div class="col-12">
+
+{#            {{ sonata_block_render({#}
+{#                'type': 'Partitech\\SonataMenu\\block\\SonataMenuBlockService',#}
+{#                'settings': {#}
+{#                    'menu': 2,#}
+{#                    'template': '@PartitechSonataMenu/Blocks/menu_default.html.twig',#}
+{#                    'style_url': '/themes/sonata-extra-demo/css/blocks_menu_footer.css'#}
+{#                }#}
+{#            })#}
+{#            }}#}
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+    <div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+    <div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+{#    {{ sonata_block_render(#}
+{#        {#}
+{#            'type': 'sonata.page.block.shared_block', 'settings':#}
+{#            {#}
+{#                'blockId': 213#}
+{#            }#}
+{#        })#}
+{#    }}#}
+
+{% endblock %}

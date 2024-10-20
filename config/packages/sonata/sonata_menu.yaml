@@ -1,0 +1,9 @@
+partitech_sonata_menu:
+  entities:
+    menu: App\Entity\Menu
+    menu_item: App\Entity\MenuItem
+
+
+  #admins:
+    #menu: AppBundle\Admin\MyMenuAdmin
+    #menu_item: AppBundle\Admin\MyMenuItemAdmin

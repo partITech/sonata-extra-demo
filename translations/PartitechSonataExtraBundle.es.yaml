@@ -1,0 +1,214 @@
+sonata-extra:
+  approve:
+    log_message : "El usuario <b>[user]</b> ha [action] el elemento [entity]"
+    approval_message : "Esperando aprobación."
+    approved_by_message : "<br> Aprobado por <b>[user]</b> el [date]."
+    cancel_modification: "¿Estás seguro de que deseas cancelar esta modificación?"
+    cancel_modification_btn: "Cancelar la modificación"
+    approve_create: "¿Estás seguro de que deseas aprobar esta creación?"
+    approve_delete: "¿Estás seguro de que deseas aprobar esta eliminación?"
+    approve_update: "¿Estás seguro de que deseas aprobar esta modificación?"
+    approve_create_btn: "Aprobar la creación"
+    approve_delete_btn: "Aprobar la eliminación"
+    approve_update_btn: "Aprobar la modificación"
+    purge_all_btn: "Eliminar todas las modificaciones pendientes"
+    confirm_purge_all: "¿Estás seguro de que deseas eliminar todas las modificaciones pendientes?"
+
+    success_message:
+      create: "La creación debe ser aprobada para que tenga efecto."
+      update: "La actualización debe ser aprobada para que tenga efecto."
+      delete: "La eliminación debe ser aprobada para que tenga efecto."
+      all_applied: "Todas las modificaciones se han aplicado."
+      create_applied: "La creación se ha aplicado."
+      revert_successfully: "La modificación se ha revertido con éxito."
+      all_revert_applied: "Todas las modificaciones se han revertido con éxito."
+      purge: "Las modificaciones aprobadas se han eliminado con éxito."
+    error_message:
+      journal_not_found: 'Registro de cambios no encontrado.'
+      journal_not_found_for_activity: 'No se encontró ningún registro de cambios para esta actividad.'
+      entity_not_found: 'Entidad no encontrada.'
+      token: "Token no válido, por favor inténtalo de nuevo."
+
+  redirect_admin:
+    import_btn: "Importar tus redirecciones en formato CSV"
+    import_title: "Importar tus redirecciones en formato CSV"
+    success:
+      import: "Importación exitosa"
+
+  faq:
+    manage_question: "Gestionar preguntas"
+
+  article_admin:
+    retour: "Volver"
+    revisions: "Revisiones"
+    global_settings: "Configuración global"
+    publish_settings: "Configuración de publicación"
+    published_at: "Publicado el"
+    author: "Autor"
+    status: "Estado"
+    published: "Publicado"
+    draft: "Borrador"
+    title: "Título"
+    contenido: "Contenido"
+    content: "Contenido"
+    id: "ID"
+    actions: "Acciones"
+    edit: "Editar"
+    delete: "Eliminar"
+    editor_gutenberg: "Editor: Gutenberg"
+    editor_ckeditor: "Editor: Ckeditor"
+    editor_textarea: "Editor: Textarea"
+    editor_markdown: "Editor: Markdown"
+    label_gutenberg: "Gutenberg"
+    label_ckeditor: "Ckeditor"
+    label_textarea: "Textarea"
+    label_markdown: "Markdown"
+    msg_editor_change: "El editor ha sido cambiado"
+    seo_proposal: "Propuesta SEO"
+    seo_modal_title: "Calcular los parámetros SEO óptimos para este contenido"
+    seo_modal_excerpt: "Extracto"
+    seo_modal_seo_title: "Título SEO"
+    seo_modal_seo_description: "Descripción SEO"
+    seo_modal_seo_seokeywords: "Palabras clave SEO"
+    seo_modal_seo_slug: "SLUG"
+    seo_modal_calculate_btn: "Calcular"
+    seo_modal_use_btn: "Utilizar"
+    seo_modal_error: "Parece que hay un problema con el servicio de sugerencia SEO.<br> Por favor, inténtalo de nuevo."
+
+  editor_admin:
+    editor_gutenberg: "Editor: Gutenberg"
+    editor_ckeditor: "Editor: Ckeditor"
+    editor_textarea: "Editor: Textarea"
+    editor_markdown: "Editor: Markdown"
+    label_gutenberg: "Gutenberg"
+    label_ckeditor: "Ckeditor"
+    label_textarea: "Textarea"
+    label_markdown: "Markdown"
+    msg_editor_change: "El editor ha sido cambiado"
+
+  page_admin:
+    tree_view:
+      create_translation_popin: "Selecciona el idioma fuente para la traducción de tu página"
+      create: "Creación de la página para el sitio "
+      edit: "Edición de la página para el sitio"
+    compose:
+      preview_btn: "Vista previa de la página"
+
+  translation:
+    selector_title: "Páginas para el sitio"
+    create_entity: "Crear un registro para el sitio "
+    create: "Crear la traducción para el sitio "
+    edit: "Modificar la traducción para el sitio "
+    header_list_label: "Traducciones"
+
+  block_contact:
+    title: "Título"
+    first_name: "Nombre"
+    use_field_first_name: "Usar el campo nombre"
+    first_name_label: "Etiqueta del campo nombre"
+    last_name: "Apellido"
+    use_field_last_name: "Usar el campo apellido"
+    last_name_label: "Etiqueta del campo apellido"
+    company_name: "Nombre de la empresa"
+    use_field_company_name: "Usar el campo nombre de la empresa"
+    company_name_label: "Etiqueta del campo nombre de la empresa"
+    address: "Dirección"
+    use_field_address: "Usar el campo dirección"
+    address_label: "Etiqueta del campo dirección"
+    email : "Correo electrónico"
+    use_field_email: "Usar el campo correo electrónico"
+    email_label: "Etiqueta del campo correo electrónico"
+    phone: "Teléfono"
+    use_field_phone: "Usar el campo teléfono"
+    phone_label: "Etiqueta del campo teléfono"
+    use_field_additional_information: "Usar el campo información adicional"
+    additional_information: "Información adicional"
+    additional_information_label: "Etiqueta del campo información adicional"
+    required_field: "¿Campo obligatorio?"
+    send_me_a_copy: "¿Ofrecer enviar una copia del mensaje?"
+    send_me_a_copy_label: "Etiqueta de la pregunta de enviar una copia del mensaje"
+    send_me_a_copy_default_message: "Enviar una copia"
+    send_to_label: "¿Enviar una copia interna del mensaje?"
+    send_to: "Ingrese el correo de destino"
+    submit_label: "Etiqueta del botón de enviar"
+
+    mail_confirmation: "Plantilla de correo de confirmación para el usuario"
+    mail_subject: "Asunto del correo"
+    mail_admin_notification: "Plantilla de correo de confirmación para el administrador"
+    mail_signature: "Firma del correo"
+
+    confirmation_message_label: "Mensaje de confirmación"
+    confirmation_message: |
+      <div class="container">
+        <div class="contact_confirmation">
+          <h4 class="alert-heading">¡Gracias por contactarnos!</h4>
+          <p>Tu mensaje ha sido enviado con éxito. Hemos recibido tu solicitud y te responderemos tan pronto como sea posible.</p>
+          <p class="mb-0">Mientras tanto, siéntete libre de explorar nuestro sitio para obtener más información.</p>
+        </div>
+      </div>
+    confirmation_template_label: "Plantilla de confirmación"
+    confirmation_javascript_label: "Página de confirmación de Javascript"
+
+    firstName_not_blank: "El nombre es obligatorio."
+    lastName_not_blank: "El apellido es obligatorio."
+    companyName_not_blank: "El nombre de la empresa es obligatorio."
+    address_not_blank: "La dirección es obligatoria."
+    email_not_blank: "El correo electrónico es obligatorio."
+    email_invalid: "El correo electrónico no es válido."
+    phone_not_blank: "El número de teléfono es obligatorio."
+    phone_invalid: "El número de teléfono no es válido."
+    additionalInformation_not_blank: "El campo de información adicional es obligatorio."
+    submitLabel: "Enviar"
+
+    confirmation:
+      title: "Confirmación de su solicitud de contacto"
+      heading: "Confirmación de su solicitud de contacto"
+      greeting: "Hola"
+      received: "Hemos recibido su solicitud de contacto con la siguiente información:"
+      firstName: "Nombre"
+      lastName: "Apellido"
+      email: "Correo Electrónico"
+      phone: "Teléfono"
+      message: "Mensaje"
+      confirmation: "Esta es una confirmación de que hemos recibido su mensaje. Un miembro de nuestro equipo se pondrá en contacto con usted pronto."
+      thankYou: "Gracias por contactarnos."
+      regards: "Cordialmente"
+
+    admin-notification:
+      title: "Nueva solicitud de contacto"
+      heading: "Nueva solicitud de contacto"
+      introduction: "Ha recibido una nueva solicitud de contacto con la siguiente información:"
+      procedure: "Por favor, siga esta solicitud de acuerdo con nuestros procedimientos internos."
+
+
+  search:
+    submit_label: "Enviar"
+    label_submit_label: "Etiqueta del botón de enviar"
+    placeholder: "Marcador de posición"
+    result_title: "Resultados"
+    no_article_found_for_this_search: "No se encontraron artículos para esta búsqueda."
+
+  blog:
+    section_article_title: "Sección"
+    section_category_list_title: "Sección"
+    section_tag_list_title: "Sección"
+    no_article_found_for_this_category: "No se encontraron artículos para esta categoría."
+    no_article_found_for_this_tag: "No se encontraron artículos para esta etiqueta."
+    write_by: "Escrito por"
+    publish_date: "el"
+    read_more: "Leer más "
+    categories: "Categorías : "
+    tags: "Etiquetas : "
+    btn_read_more: "Leer más"
+    share_this_article: "Compartir este artículo"
+    about_the_author: "Acerca del autor"
+
+  category:
+    label_saved: "Categoría guardada correctamente"
+    label_error: "Ha ocurrido un error"
+    tree_catalog_title: "Modificar categorías"
+    label_delete: "Eliminar"
+    label_modify: "Modificar"
+    label_enabled: "Activar"
+    label_disabled: "Desactivar"
+    label_action: "Acción"

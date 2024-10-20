@@ -1,0 +1,16 @@
+imports:
+  - { resource: sonata/sonata_admin.yaml}
+  - { resource: sonata/sonata_block.yaml}
+  - { resource: sonata/sonata_classification.yaml }
+  - { resource: sonata/sonata_extra.yaml }
+  - { resource: sonata/sonata_form.yaml}
+  - { resource: sonata/sonata_formatter.yaml}
+  - { resource: sonata/sonata_media.yaml }
+  - { resource: sonata/sonata_menu.yaml }
+
+  - { resource: sonata/sonata_page.yaml}
+  - { resource: sonata/sonata_translation.yaml}
+  - { resource: sonata/sonata_user.yaml}
+  - { resource: sonata/sonata_intl.yaml}
+
+

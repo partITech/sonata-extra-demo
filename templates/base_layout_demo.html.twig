@@ -1,0 +1,123 @@
+{%- block sonata_page_html_tag -%}
+<!DOCTYPE html>
+
+<html {{ sonata_seo_html_attributes() }} {% if page is defined %}{% set lang = page.site.locale|replace({'_': '-'}) %}lang="{{ lang }}"{% endif%} class="minimal-style is-menu-fixed is-always-fixed is-selection-shareable blog-animated header-light header-small has-menu-border" data-effect="fadeIn">
+{% endblock %}
+    {% block sonata_page_head %}
+        <head {{ sonata_seo_head_attributes() }}>
+            {% apply spaceless %}
+	    <meta charset="UTF-8">
+            <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+            <link rel="manifest" href="/images/favicon/site.webmanifest">
+            <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#ff0800">
+            <link rel="shortcut icon" href="/images/favicon/favicon.ico">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="canonical" href="{{ app.request.schemeAndHttpHost ~ app.request.requestUri }}">
+            <meta property="og:url" content="{{ app.request.schemeAndHttpHost ~ app.request.requestUri }}" />
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+            {% if page is defined %}
+                {% set lang = page.site.locale|replace({'_': '-'}) %}
+                <meta property="og:locale" content="{{ lang }}" />
+                <meta property="og:site_name" content="{{ page.site.name }}" />
+
+                {% if  app.request.get('Language-Selector') is defined and app.request.get('Language-Selector')|length%}
+                    {% for translation in app.request.get('Language-Selector') %}
+                        <meta property="og:locale:alternate" content="{{ translation.lang }}_{{ translation.lang|upper }}" />
+                        <link rel="alternate" hreflang="{{ translation.lang }}" href="{{ translation['routes'][0] }}" />
+
+                    {% endfor %}
+                {% elseif page.getBlocks()[0] is defined and page.getBlocks()[0].page.translations %}
+                    {% for translation in page.getBlocks()[0].page.translations %}
+                        <meta property="og:locale:alternate" content="{{ translation.lang }}_{{ translation.lang|upper }}" />
+                        {% if translation['routes'][page.routeName] is defined and page.getBlocks()[0].page.translations  %}
+                            <link rel="alternate" hreflang="{{ translation.lang }}" href="{{ translation['routes'][page.routeName] }}" />
+                        {% endif%}
+                    {% endfor %}
+                {% endif%}
+            {% endif%}
+
+            {% block sonata_seo_title %}
+                {{ sonata_seo_title() }}
+            {% endblock %}
+            {% block sonata_seo_metadatas %}
+                {{ sonata_seo_metadatas() }}
+            {% endblock %}
+            {% block app_og_metadatas %}
+                {{ app_og_metadatas() }}
+            {% endblock %}
+
+            {% endapply %}
+
+
+
+            {% block javascripts %}
+                {{ encore_entry_script_tags('app') }}
+            {% endblock %}
+
+            {% block sonata_page_stylesheets %}
+                {% if sonata_page.isEditor or ( app.user and is_granted('ROLE_PREVIOUS_ADMIN') ) %}
+                <link rel="stylesheet" href="{{ asset('bundles/sonatapage/frontend.css') }}" media="all">
+                <link rel="stylesheet" href="{{ asset('bundles/partitechsonataextra/assets/styles/admin.css') }}" media="all">
+                {% endif %}
+            {% endblock %}
+
+            {% block sonata_page_javascripts %}
+                {% if sonata_page.isEditor or ( app.user and is_granted('ROLE_PREVIOUS_ADMIN') ) %}
+                <script src="{{ asset('bundles/partitechsonataextra/assets/admin.js') }}"></script>
+                {% endif %}
+            {% endblock %}
+
+
+
+        </head>
+    {% endblock %}
+
+    {% block sonata_page_body_tag %}
+        <body class="sonata-bc home page-template-default page  gutentor-active">
+
+    {% endblock %}
+
+    {% include 'sonata_page_front.html.twig' %}
+
+        <div class="bootstrap-scope">
+            {% block sonata_page_container %}{% endblock %}
+        </div>
+
+
+
+
+        {% block sonata_page_asset_footer %}
+            {% if page is defined %}
+                {% if page.javascript is not empty %}
+                    <script>
+                        {{ page.javascript|raw }}
+                    </script>
+                {% endif %}
+                {% if page.stylesheet is not empty %}
+                    <style>
+                        {{ page.stylesheet|raw }}
+                    </style>
+                {% endif %}
+            {% endif %}
+            {#
+                These includes can be done only at this point as all blocks are loaded,
+                Limition : this does not work if a global page is loaded from an ESI tag inside a container block
+            #}
+            {{ sonata_block_include_stylesheets('screen', app.request.basePath) }}
+            {{ sonata_block_include_javascripts('screen', app.request.basePath) }}
+
+            {{ sonata_extra_get_blocks_css('default')|raw }}
+            {{ sonata_extra_get_blocks_css_inline('default', true)|raw }}
+            {{ sonata_extra_get_blocks_js('default')|raw }}
+            {{ sonata_extra_get_blocks_js_inline('default', true)|raw }}
+
+            {% block stylesheets %}
+                {{ encore_entry_link_tags('app') }}
+            {% endblock %}
+
+        {% endblock %}
+
+
+    </body>
+</html>

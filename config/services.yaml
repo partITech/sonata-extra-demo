@@ -1,0 +1,91 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    locale: 'en'
+    app.notifications.email_sender: anonymous@example.com
+    google_recaptcha_site_key: '%env(GOOGLE_RECAPTCHA_SITE_KEY)%'
+
+    sonata_menu.entity.menu: App\Entity\Menu
+    sonata_menu.entity.menu_item: App\Entity\MenuItem
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+
+    Sonata\AdminBundle\Security\Handler\SecurityHandlerInterface: '@sonata.admin.security.handler'
+    Sonata\DoctrineORMAdminBundle\Model\ModelManager: '@sonata.admin.manager.orm'
+    Sonata\PageBundle\Page\Service\PageServiceInterface: '@sonata.page.service.default'
+    Sonata\PageBundle\CmsManager\CmsManagerInterface: '@sonata.page.cms.snapshot'
+
+
+    Symfony\Component\PasswordHasher\PasswordHasherInterface:
+        alias: 'security.password_hasher'
+
+    Liip\ImagineBundle\Service\FilterService: '@liip_imagine.service.filter'
+
+    sonata-extra.doctrine_activity_listener:
+        class: Partitech\SonataExtra\EventListener\DoctrineActivityListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: preRemove }
+            - { name: doctrine.event_listener, event: onFlush }
+            - { name: kernel.event_listener, event: sonata.admin.event.batch_action.pre_batch_action, method: onPreBatchAction }
+
+
+
+    sonata-extra.configure_menu_listener:
+        class: Partitech\SonataExtra\EventListener\ConfigureMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sonata.admin.event.configure.menu.sidebar, method: onMenuConfigure }
+        arguments:
+            - "@service_container"
+            - "@doctrine.orm.entity_manager"
+            - "@request_stack"
+            - "@security.authorization_checker"
+
+
+    sonata-extra.redirection_listener:
+        class: Partitech\SonataExtra\EventListener\RedirectionListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+
+    sonata-extra.Firewall_Listener:
+        class: Partitech\SonataExtra\EventListener\FirewallListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+
+#    admin.useradmin:
+#        class: App\Admin\BackofficeUserAdmin
+#        tags:
+#            - name: sonata.admin
+#              model_class: App\Entity\BackofficeUser
+#              controller: App\Controller\BackofficeUserAdminController
+#              manager_type: orm
+#              group: admin
+#              label: Users
+#              translation_domain: 'menu'
+
+    sonata.intl.timezone_detector.chain:
+        class: Sonata\IntlBundle\Timezone\ChainTimezoneDetector
+        arguments:
+            $defaultTimezone: 'UTC'

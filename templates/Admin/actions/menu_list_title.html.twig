@@ -1,0 +1,6 @@
+{% apply spaceless %}
+    {% for i in range(0, object.depth) %}
+        &nbsp;&nbsp;&nbsp;
+    {% endfor %}
+    {{ object.label }}
+{% endapply %}

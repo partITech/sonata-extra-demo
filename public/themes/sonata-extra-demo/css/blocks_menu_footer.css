@@ -1,0 +1,19 @@
+.textwidget.custom-html-widget {
+    text-align: center; /* Centre le contenu du widget */
+}
+
+.textwidget.custom-html-widget ul {
+    list-style: none; /* Supprime les puces */
+    display: inline-flex; /* Affiche les éléments en ligne et permet le centrage */
+    padding: 0; /* Supprime le padding par défaut du ul */
+    justify-content: center; /* Centre les éléments à l'intérieur du flex container */
+}
+
+.textwidget.custom-html-widget li:not(:last-child)::after {
+    content: ' | '; /* Ajoute un séparateur entre les éléments, sauf pour le dernier */
+    margin: 0 10px; /* Ajuste l'espacement autour du séparateur */
+}
+
+.textwidget.custom-html-widget li {
+    margin: 0; /* Supprime les marges par défaut des éléments li */
+}

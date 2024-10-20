@@ -1,0 +1,7 @@
+/**
+ * Bundled by jsDelivr using Rollup v2.79.1 and Terser v5.19.2.
+ * Original file: /npm/side-channel@1.0.6/index.js
+ *
+ * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+ */
+import e from"get-intrinsic";import t from"call-bind/callBound";import n from"object-inspect";import o from"es-errors/type";var r=e,p=t,f=n,i=o,a=r("%WeakMap%",!0),u=r("%Map%",!0),s=p("WeakMap.prototype.get",!0),c=p("WeakMap.prototype.set",!0),l=p("WeakMap.prototype.has",!0),m=p("Map.prototype.get",!0),y=p("Map.prototype.set",!0),x=p("Map.prototype.has",!0),v=function(e,t){for(var n,o=e;null!==(n=o.next);o=n)if(n.key===t)return o.next=n.next,n.next=e.next,e.next=n,n},M=function(){var e,t,n,o={assert:function(e){if(!o.has(e))throw new i("Side channel does not contain "+f(e))},get:function(o){if(a&&o&&("object"==typeof o||"function"==typeof o)){if(e)return s(e,o)}else if(u){if(t)return m(t,o)}else if(n)return function(e,t){var n=v(e,t);return n&&n.value}(n,o)},has:function(o){if(a&&o&&("object"==typeof o||"function"==typeof o)){if(e)return l(e,o)}else if(u){if(t)return x(t,o)}else if(n)return function(e,t){return!!v(e,t)}(n,o);return!1},set:function(o,r){a&&o&&("object"==typeof o||"function"==typeof o)?(e||(e=new a),c(e,o,r)):u?(t||(t=new u),y(t,o,r)):(n||(n={key:{},next:null}),function(e,t,n){var o=v(e,t);o?o.value=n:e.next={key:t,next:e.next,value:n}}(n,o,r))}};return o};export{M as default};

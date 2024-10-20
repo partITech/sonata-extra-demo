@@ -1,0 +1,44 @@
+# These lines define a route using YAML configuration. The controller used by
+# the route (FrameworkBundle:Template:template) is a convenient shortcut when
+# the template can be rendered without executing any logic in your own controller.
+# See https://symfony.com/doc/current/templates.html#rendering-a-template-directly-from-a-route
+#homepage:
+#    path: /{_locale}
+#    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+#    defaults:
+#        template: default/homepage.html.twig
+#        _locale: '%locale%'
+
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+sonata_user_admin_security:
+    resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
+    prefix: /admin
+
+sonata_user_admin_resetting:
+    resource: '@SonataUserBundle/Resources/config/routing/admin_resetting.xml'
+    prefix: /admin
+
+_liip_imagine:
+    resource: '@LiipImagineBundle/Resources/config/routing.yaml'
+
+sonata_translation:
+    resource: '@SonataTranslationBundle/Resources/config/routes.yaml'
+
+
+sonata_media:
+    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
+    prefix: /media
+
+
+#_profiler:
+#    path: /
+#    controller: web_profiler.controller.profiler::homeAction
+#
+#_profiler_xdebug:
+#    path: /xdebug
+#    controller: web_profiler.controller.profiler::xdebugAction

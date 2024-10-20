@@ -1,0 +1,11 @@
+sonata-extra:
+  block_contact:
+    firstName_not_blank: "Tên phải được điền."
+    lastName_not_blank: "Họ phải được điền."
+    companyName_not_blank: "Tên công ty phải được điền."
+    address_not_blank: "Địa chỉ phải được điền."
+    email_not_blank: "Địa chỉ email phải được điền."
+    email_invalid: "Địa chỉ email không hợp lệ."
+    phone_not_blank: "Số điện thoại phải được điền."
+    phone_invalid: "Số điện thoại không hợp lệ."
+    additionalInformation_not_blank: "Trường thông tin bổ sung phải được điền."

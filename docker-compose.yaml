@@ -1,0 +1,57 @@
+services:
+  www:
+    container_name: sonata_extra_demo_www
+    image: 'devpartitech/php:8.3-apache'
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./:/var/www/"
+    environment:
+      PHP_IDE_CONFIG: "serverName=localhost"
+      SYMFONY_IDE: phpstorm://open?file=%f&line=%l&/var/www>$PWD
+      PHP_UPLOAD_MAX_FILESIZE: 300M
+      PHP_POST_MAX_SIZE: 300M
+
+    extra_hosts:
+      - host.docker.internal:host-gateway
+
+  db:
+    hostname: sonata_extra_demo_db
+    image: mariadb
+    ports:
+      - 3306:3306
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: 'toor'
+      MYSQL_DATABASE: 'sonata-extra-demo'
+      MYSQL_USER: 'sonata'
+      MYSQL_PASSWORD: 'toor'
+    volumes:
+      - ./config/docker/data-sql/:/var/lib/mysql
+      - ./config/docker/init-sql/:/docker-entrypoint-initdb.d
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: 'toor'
+      UPLOAD_LIMIT: '300M'
+    links:
+      - db
+
+volumes:
+  db-data:

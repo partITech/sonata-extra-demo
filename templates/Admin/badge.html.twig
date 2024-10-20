@@ -1,0 +1,7 @@
+{# templates/admin/badge.html.twig #}
+
+{% if object.status == 'revertible' %}
+    <span class="badge badge-success">Revertible</span>
+{% else %}
+    <span class="badge badge-secondary">Not Revertible</span>
+{% endif %}

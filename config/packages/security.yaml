@@ -1,0 +1,237 @@
+security:
+    # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+        App\Entity\UserFront: 'auto'
+
+    # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
+    providers:
+        sonata_user_bundle:
+            id: sonata.user.security.user_provider
+        users_in_memory: { memory: null }
+        user_front_provider:
+            entity:
+                class: App\Entity\UserFront
+                property: email
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        admin:
+            lazy: true
+            pattern: /admin(.*)
+            provider: sonata_user_bundle
+            context: user
+            switch_user: true
+            form_login:
+                login_path: sonata_user_admin_security_login
+                check_path: sonata_user_admin_security_check
+                default_target_path: sonata_admin_dashboard
+                #success_handler: Partitech\SonataExtra\Handler\AuthenticationSuccessHandler
+            logout:
+                path: sonata_user_admin_security_logout
+                target: sonata_user_admin_security_login
+            remember_me:
+                secret: "%env(APP_SECRET)%"
+                lifetime: 2629746
+                path: /admin
+        main:
+            lazy: true
+            provider: user_front_provider
+            #form_login:
+            #    login_path: user_front_login
+            #    check_path: user_front_login
+            logout:
+                path: user_front_logout
+                target: app_home
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800 # 1 semaine
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#the-firewall
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/admin/login$, role: PUBLIC_ACCESS }
+        - { path: ^/admin/logout$, role: PUBLIC_ACCESS }
+        - { path: ^/admin/login_check$, role: PUBLIC_ACCESS }
+        - { path: ^/admin/request$, role: PUBLIC_ACCESS }
+        - { path: ^/admin/check-email$, role: PUBLIC_ACCESS }
+        - { path: ^/admin/reset/.*$, role: PUBLIC_ACCESS }
+        - { path: ^/admin/, role: ROLE_EDITOR }
+        - { path: ^/user_front/login, roles: PUBLIC_ACCESS }
+        - { path: ^/user_front/register, roles: PUBLIC_ACCESS }
+        - { path: ^/user_front/forgot-password, roles: PUBLIC_ACCESS }
+        - { path: ^/user_front/reset-password, roles: PUBLIC_ACCESS }
+        - { path: ^/user_front/profile, roles: ROLE_USER }
+        - { path: ^/.*, role: PUBLIC_ACCESS }
+
+    role_hierarchy:
+
+        ROLE_EDITOR:
+            - ROLE_USER
+            - ROLE_SONATA_ADMIN
+            - ROLE_ADMIN_USERADMIN_ALL
+
+            - ROLE_ADMIN_ADMIN_ACTIVITY_LOG_ALL
+            - ROLE_ADMIN_ADMIN_APPROVAL_LOG_ALL
+            - ROLE_ADMIN_USERADMIN_ALL
+            - ROLE_ADMIN_REDIRECTION_ALL
+
+            - ROLE_PARTITECH\SONATAEXTRA\ADMIN\SLIDERADMIN_ALL
+            - ROLE_PARTITECH\SONATAEXTRA\ADMIN\SLIDERADMIN_ALL
+            - ROLE_PARTITECH\SONATAEXTRA\ADMIN\REDIRECTIONADMIN_ALL
+            - ROLE_PARTITECH\SONATAEXTRA\ADMIN\FAQCATEGORYADMIN_ALL
+            - ROLE_PARTITECH\SONATAEXTRA\ADMIN\FAQQUESTIONADMIN_ALL
+
+            - ROLE_SONATA_EXTRA_ADMIN_SLIDER_ALL
+            - ROLE_SONATA_EXTRA_ADMIN_SLIDER_SLIDES_ALL
+            - ROLE_SONATA_EXTRA_ADMIN_FAQ_CATEGORY_ALL
+            - ROLE_SONATA_EXTRA_ADMIN_FAQ_QUESTION_ALL
+
+            - ROLE_SONATA_USER_ADMIN_USER_ALL
+
+            - ROLE_SONATA_MEDIA_ADMIN_MEDIA_ALL
+            - ROLE_SONATA_MEDIA_ADMIN_GALLERY_ALL
+            - ROLE_SONATA_MEDIA_ADMIN_GALLERY_ITEM_ALL
+
+            - ROLE_SONATA_PAGE_ADMIN_PAGE_ALL
+            - ROLE_SONATA_PAGE_ADMIN_BLOCK_ALL
+            - ROLE_SONATA_PAGE_ADMIN_SHARED_BLOCK_ALL
+            - ROLE_SONATA_PAGE_ADMIN_SNAPSHOT_ALL
+            - ROLE_SONATA_PAGE_ADMIN_SITE_ALL
+
+            - ROLE_PRODIGIOUS_SONATA_MENU_ADMIN_MENU_ALL
+            - ROLE_PRODIGIOUS_SONATA_MENU_ADMIN_MENU_ITEM_ALL
+
+
+        ROLE_ADMIN:
+            - ROLE_USER
+            - ROLE_SONATA_ADMIN
+            - ROLE_APPROVE
+            - ROLE_EDITOR
+            - ROLE_ADMIN_ADMIN_ACTIVITY_LOG_ALL
+            - ROLE_ADMIN_ADMIN_APPROVAL_LOG_ALL
+            - ROLE_PARTITECH\SONATAEXTRA\ADMIN\APPROVALLOGADMIN_ALL
+            - ROLE_PARTITECH\SONATAEXTRA\ADMIN\ADMINACTIVITYLOG_ALL
+
+
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    access_decision_manager:
+        strategy: unanimous
+
+acl:
+    connection: default
+
+when@dev:
+    security:
+        password_hashers:
+            # By default, password hashers are resource intensive and take time. This is
+            # important to generate secure password hashes. In tests however, secure hashes
+            # are not important, waste resources and increase test times. The following
+            # reduces the work factor to the lowest possible values.
+            Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+                algorithm: auto
+                cost: 4 # Lowest possible value for bcrypt
+                time_cost: 3 # Lowest possible value for argon
+                memory_cost: 10 # Lowest possible value for argon
+
+
+#security:
+#    password_hashers:
+#        # Our user class and the algorithm we'll use to encode passwords
+#        # 'auto' means to let Symfony choose the best possible password hasher (Argon2 or Bcrypt)
+#        # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
+#        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+#
+#    providers:
+#        # https://symfony.com/doc/current/security/user_provider.html
+#        # In this example, users are stored via Doctrine in the database
+#        # To see the users at src/App/DataFixtures/ORM/LoadFixtures.php
+#        # To load users from somewhere else: https://symfony.com/doc/current/security/user_provider.html#creating-a-custom-user-provider
+#        database_users:
+#            entity: { class: App\Entity\User, property: username }
+#
+#    # https://symfony.com/doc/current/security.html#a-authentication-firewalls
+#    firewalls:
+#        dev:
+#            pattern: ^/(_(profiler|wdt)|css|images|js)/
+#            security: false
+#
+#        main:
+#            # this firewall does not have a 'pattern' option because it applies to all URLs
+#            lazy: true
+#            provider: database_users
+#
+#            # This allows the user to login by submitting a username and password
+#            # Reference: https://symfony.com/doc/current/security/form_login_setup.html
+#            form_login:
+#                # The route name that the login form submits to
+#                check_path: security_login
+#                # The name of the route where the login form lives
+#                # When the user tries to access a protected page, they are redirected here
+#                login_path: security_login
+#                # Secure the login form against CSRF
+#                # Reference: https://symfony.com/doc/current/security/csrf.html
+#                enable_csrf: true
+#                # The page users are redirect to when there is no previous page stored in the
+#                # session (for example when the users access directly to the login page).
+#                default_target_path: blog_index
+#
+#            # This option allows users to choose to stay logged in for longer than
+#            # the session lasts using a cookie. Reference: https://symfony.com/doc/current/security/remember_me.html
+#            remember_me:
+#                secret:   '%kernel.secret%' # required
+#                lifetime: 604800 # 1 week in seconds
+#                # by default, the feature is enabled by checking a checkbox in the
+#                # login form , uncomment the following line to always enable it.
+#                #always_remember_me: true
+#
+#            logout:
+#                # The name of the route to redirect to after logging out
+#                target: homepage
+#                # Secure the logout against CSRF
+#                enable_csrf: true
+#
+#            # needed because in tests we redefine the 'main' firewall to use
+#            # HTTP Basic instead of the login form, so this firewall has
+#            # multiple authenticators
+#            # See https://symfony.com/doc/current/security/experimental_authenticators.html#configuring-the-authentication-entry-point
+#            entry_point: 'form_login'
+#
+#    # Easy way to control access for large sections of your site
+#    # Note: Only the *first* access control that matches will be used
+#    access_control:
+#        # this is a catch-all for the admin area
+#        # additional security lives in the controllers
+#        - { path: '^/{_locale}/admin', roles: ROLE_ADMIN }
+#
+#    # The ROLE_ADMIN role inherits from the ROLE_USER role
+#    role_hierarchy:
+#        ROLE_ADMIN: ROLE_USER
+#
+#when@test:
+#    # this configuration simplifies testing URLs protected by the security mechanism
+#    # See https://symfony.com/doc/current/testing/http_authentication.html
+#    security:
+#        password_hashers:
+#            # By default, password hashers are resource intensive and take time. This is
+#            # important to generate secure password hashes. In tests however, secure hashes
+#            # are not important, waste resources and increase test times. The following
+#            # reduces the work factor to the lowest possible values.
+#            Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+#                algorithm: auto
+#                cost: 4 # Lowest possible value for bcrypt
+#                time_cost: 3 # Lowest possible value for argon
+#                memory_cost: 10 # Lowest possible value for argon
+#
+#        firewalls:
+#            main:
+#                http_basic: ~

@@ -1,0 +1,14 @@
+sonata_user:
+  class:
+    user: App\Entity\SonataUserUser
+  admin:
+    user:
+      class: App\Admin\BackofficeUserAdmin
+  resetting:
+    email:
+      address: "test@test.com"
+      sender_name: Backoffice
+  impersonating:
+    route: sonata_admin_dashboard
+  security_acl: true
+  manager_type: orm

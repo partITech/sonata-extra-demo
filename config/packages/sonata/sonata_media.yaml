@@ -1,0 +1,46 @@
+sonata_media:
+    class:
+        media: App\Entity\SonataMediaMedia
+        gallery: App\Entity\SonataMediaGallery
+        gallery_item: App\Entity\SonataMediaGalleryItem
+    db_driver: doctrine_orm
+
+
+    default_context: default
+    contexts:
+        default:
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+                - sonata.media.provider.vimeo
+            formats:
+                small: { width: 100, quality: 70, resizer: sonata.media.resizer.simple }
+                thumbnail: { width: 150, quality: 70, resizer: sonata.media.resizer.simple }
+                medium: { width: 300, quality: 70, resizer: sonata.media.resizer.simple }
+                medium_large: { width: 768, quality: 70, resizer: sonata.media.resizer.simple }
+                large: { width: 1024, quality: 70, resizer: sonata.media.resizer.simple }
+                retina_medium_large: { width: 1536, quality: 70, resizer: sonata.media.resizer.simple }
+                retina_large: { width: 2048, quality: 70, resizer: sonata.media.resizer.simple }
+#            formats:
+#                small: { width: 100 , quality: 70}
+#                big:   { width: 500 , quality: 70}
+    providers:
+        image:
+            allowed_extensions: ['jpg', 'png', 'gif', 'jpeg']
+            allowed_mime_types: [ 'image/pjpeg','image/jpeg','image/png','image/x-png', 'image/gif' ] # Optional
+            resizer: sonata.media.resizer.simple
+            adapter: "liip_imagine.imagick"
+        file:
+            allowed_extensions: ['jpg', 'png', 'jpeg', 'gif', 'svg', 'pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'zip', 'rar', '7z', 'mp4', 'avi', 'mov', 'mp3', 'wav', 'txt', 'html', 'htm', 'css', 'js', 'xml', 'webm']
+            allowed_mime_types: ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/zip', 'application/x-rar-compressed', 'application/x-7z-compressed', 'video/mp4', 'video/x-msvideo', 'video/quicktime', 'audio/mpeg', 'audio/wav', 'text/plain', 'text/html', 'text/css', 'application/javascript', 'application/xml','video/webm']
+    cdn:
+        server:
+            path: /uploads/media
+
+    filesystem:
+        local:
+            # Directory for uploads should be writable
+            directory: "%kernel.project_dir%/public/uploads/media"
+            create: true

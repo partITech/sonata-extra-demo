@@ -1,0 +1,85 @@
+sonata_admin:
+    security:
+        handler: sonata.admin.security.handler.role
+    options:
+        skin: 'skin-black'
+        #possible values "skin-black", "skin-black-light", "skin-blue", "skin-blue-light", "skin-green", "skin-green-light", "skin-purple", "skin-purple-light", "skin-red", "skin-red-light", "skin-yellow", "skin-yellow-light"
+    title: ' '
+    title_logo: 'images/partITech_150x66.png'
+    dashboard:
+        blocks:
+            - { type: sonata.admin.block.admin_list, position: left }
+
+        groups:
+            cms:
+                icon: fa fa-pencil
+                label: CMS
+                keep_open: true
+                items:
+                    - Partitech\SonataExtra\Admin\ArticleAdmin
+                    - sonata.page.admin.page
+                    - sonata_menu.admin.menu
+
+            blocks:
+                icon: fa fa-pencil
+                label: Blocs
+                keep_open: true
+                items:
+                    - Partitech\SonataExtra\Admin\EditorAdmin
+                    - sonata.page.admin.shared_block
+                    - Partitech\SonataExtra\Admin\SliderAdmin
+                    - Partitech\SonataExtra\Admin\FaqCategoryAdmin
+                    - Partitech\SonataExtra\Admin\ContactAdmin
+
+
+            configuration:
+                icon: fa fa-cog
+                label: Configuration
+                keep_open: true
+                items:
+                    - Partitech\SonataExtra\Admin\TagAdmin
+                    - Partitech\SonataExtra\Admin\CategoryAdmin
+
+            advanced:
+                icon: fa fa-cogs
+                label: Configuraton avancée
+                items:
+                    - sonata.page.admin.site
+                    - sonata.user.admin.user
+                    - sonata.media.admin.media
+                    - Partitech\SonataExtra\Admin\ActivityLogAdmin
+                    - Partitech\SonataExtra\Admin\ApprovalLogAdmin
+                    - Partitech\SonataExtra\Admin\RedirectionAdmin
+
+            firewall:
+                icon: fa fa-cogs
+                label: Firewall
+                items:
+                    - Partitech\SonataExtra\Admin\SecFirewallRuleAdmin
+                    - Partitech\SonataExtra\Admin\SecStopWordAdmin
+                    - Partitech\SonataExtra\Admin\SecIpRuleAdmin
+    assets:
+        extra_javascripts:
+            - bundles/partitechsonataextra/assets/js/runroom_sortable_init.js
+            - bundles/partitechsonataextra/assets/js/jquery-ui.min.js
+            - bundles/partitechsonataextra/assets/js/menu-admin.js
+            - /bundles/fosckeditor/ckeditor.js
+            - bundles/partitechsonataextra/assets/admin.js
+
+        extra_stylesheets:
+            - bundles/sonatatranslation/css/sonata-translation.css
+            - bundles/partitechsonataextra/assets/styles/admin.css
+            - bundles/partitechsonataextra/assets/styles/flag-icons.min.css
+
+
+    show_mosaic_button: false
+
+    templates:
+        layout: '@SonataTranslation/standard_layout.html.twig'
+        knp_menu_template: 'Admin/menu/custom_knp_menu.html.twig'
+
+sonata_block:
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+

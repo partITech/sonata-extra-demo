@@ -1,0 +1,20 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    form_themes:
+        - "bootstrap_3_layout.html.twig"
+        - '@SonataFormatter/Form/formatter.html.twig'
+        - '@PartitechSonataExtra/Form/gutenberg_field.html.twig'
+        - '@PartitechSonataExtra/Form/markdown_field.html.twig'
+    file_name_pattern: '*.twig'
+    debug:            '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    date:
+        format: 'd/m/Y H:i:s'
+        interval_format: '%d days'
+        timezone: 'Europe/Paris'
+    globals:
+        sonata_admin: '@sonata.admin.pool'
+
+when@test:
+    twig:
+        strict_variables: true

@@ -1,0 +1,41 @@
+# Read the documentation: https://symfony.com/doc/current/bundles/FOSCKEditorBundle/index.html
+
+twig:
+    form_themes:
+        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+fos_ck_editor:
+    default_config: default
+    base_path: "/bundles/fosckeditor/"
+    js_path:   "/bundles/fosckeditor/ckeditor.js"
+    configs:
+        default:
+            contentsCss: ['//fonts.googleapis.com/css?family=Limelight|Lato:400,700|Poppins:300,400,500,600,700|Noto+Sans:400,400italic,700,700italic&#038;ver=1.0.0','//fonts.googleapis.com/css?family=Open Sans:700|Noto Sans:regular&ver=6.1','/themes/partitech/css/main.css', '/themes/partitech/css/main.css','/themes/partitech/css/768.css','/themes/partitech/css/992.css','/themes/partitech/css/wp-fix.css','/themes/partitech/css/style.css' ,'/themes/partitech/css/shortcodes.css','/themes/partitech/css/fonts/fontello/css/fontello.css','/themes/partitech/css/gutentor-blocks.style.build.css','/themes/partitech/css/gutentor-p-1045.css']
+            allowedContent: true
+
+            language: fr
+            # default toolbar plus Format button
+            toolbar:
+                - [Bold, Italic, Underline, -, Cut, Copy, Paste,
+                   PasteText, PasteFromWord, -, Undo, Redo, -,
+                   NumberedList, BulletedList, -, Outdent, Indent, -,
+                   Blockquote, -, Image, Link, Unlink, Table]
+                - [Format, Maximize, Source]
+
+            enterMode: CKEDITOR.ENTER_BR
+            #filebrowserBrowseRoute: admin_app_sonatamediamedia_browser
+            #filebrowserImageBrowseRoute: admin_app_sonatamediamedia_browser
+            filebrowserBrowseRoute: sonata_extra_ckeditor_media_browser
+            filebrowserImageBrowseRoute: sonata_extra_ckeditor_media_browser
+            # Display images by default when clicking the image dialog browse button
+            filebrowserImageBrowseRouteParameters:
+                provider: sonata.media.provider.image
+            filebrowserUploadMethod: form
+            filebrowserUploadRoute: admin_app_sonatamediamedia_upload
+            filebrowserUploadRouteParameters:
+                provider: sonata.media.provider.file
+            # Upload file as image when sending a file from the image dialog
+            filebrowserImageUploadRoute: admin_app_sonatamediamedia_upload
+            filebrowserImageUploadRouteParameters:
+                provider: sonata.media.provider.image
+                context: default # Optional, to upload in a custom context
+                #format: my-big # Optional, media format or original size returned to editor

@@ -1,0 +1,3 @@
+partitech_sonata_extra_bundle.routes:
+  resource: '@PartitechSonataExtraBundle/config/routes.yaml'
+  prefix: /extra
