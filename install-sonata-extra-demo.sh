@@ -3,9 +3,9 @@
 # Nom du fichier : install_project.sh
 
 # Variables
-REPO_URL="git@git.partitech.com:partitech/sonata-extra-demo.git"
+REPO_URL="git@github.com:partITech/sonata-extra-demo.git"
 PROJECT_DIR="sonata-extra-demo"
-BRANCH="sf-7"
+BRANCH="main"
 
 # Couleurs et texte en gras
 BOLD="\033[1m"
