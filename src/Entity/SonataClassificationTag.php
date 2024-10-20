@@ -64,14 +64,14 @@ class SonataClassificationTag extends BaseTag
 
     #[ORM\ManyToOne(targetEntity: MediaInterface::class, cascade: ['persist'])]
     #[ORM\JoinColumn(name: 'seo_og_image__media_id', referencedColumnName: 'id', nullable: true, onDelete: 'SET NULL')]
-    private ?MediaInterface $seo_og_image;
+    private $seo_og_image;
 
-    public function getFeaturedImage(): ?MediaInterface
+    public function getFeaturedImage()
     {
         return $this->featured_image;
     }
 
-    public function setFeaturedImage(?MediaInterface $featured_image): self
+    public function setFeaturedImage($featured_image): self
     {
         $this->featured_image = $featured_image;
 
@@ -138,12 +138,12 @@ class SonataClassificationTag extends BaseTag
         return $this;
     }
 
-    public function getSeoOgImage(): ?MediaInterface
+    public function getSeoOgImage()
     {
         return $this->seo_og_image;
     }
 
-    public function setSeoOgImage(?MediaInterface $seo_og_image): self
+    public function setSeoOgImage($seo_og_image): self
     {
         $this->seo_og_image = $seo_og_image;
 

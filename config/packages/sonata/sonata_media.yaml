@@ -16,16 +16,17 @@ sonata_media:
                 - sonata.media.provider.file
                 - sonata.media.provider.vimeo
             formats:
-                small: { width: 100, quality: 70, resizer: sonata.media.resizer.simple }
-                thumbnail: { width: 150, quality: 70, resizer: sonata.media.resizer.simple }
-                medium: { width: 300, quality: 70, resizer: sonata.media.resizer.simple }
-                medium_large: { width: 768, quality: 70, resizer: sonata.media.resizer.simple }
-                large: { width: 1024, quality: 70, resizer: sonata.media.resizer.simple }
-                retina_medium_large: { width: 1536, quality: 70, resizer: sonata.media.resizer.simple }
-                retina_large: { width: 2048, quality: 70, resizer: sonata.media.resizer.simple }
+                small: { width: 100, quality: 70, constraint: false, resizer: sonata.media.resizer.simple }
+                thumbnail: { width: 150, quality: 70, constraint: false, resizer: sonata.media.resizer.simple }
+                medium: { width: 300, quality: 70, constraint: false, resizer: sonata.media.resizer.simple }
+                medium_large: { width: 768, quality: 70, constraint: false, resizer: sonata.media.resizer.simple }
+                large: { width: 1024, quality: 70, constraint: false, resizer: sonata.media.resizer.simple }
+                retina_medium_large: { width: 1536, quality: 70, constraint: false, resizer: sonata.media.resizer.simple }
+                retina_large: { width: 2048, quality: 70, constraint: false, resizer: sonata.media.resizer.simple }
 #            formats:
 #                small: { width: 100 , quality: 70}
 #                big:   { width: 500 , quality: 70}
+
     providers:
         image:
             allowed_extensions: ['jpg', 'png', 'gif', 'jpeg']
