@@ -16,7 +16,7 @@ Ensure your environment meets the following requirements:
 Begin by cloning the repository from GitHub:
 
 ```bash
-git clone https://github.com/your-org/sonata-extra-demo.git
+git clone https://github.com/partITech/sonata-extra-demo.git
 cd sonata-extra-demo
 ```
 
