@@ -117,6 +117,32 @@ docker compose exec -T www symfony console sonata:extra:page-fix-route
 docker compose exec -T www symfony console sonata:page:create-snapshots
 ```
 
+You can enable more longs. Simply run one or all these lines and re-run the `update-core-routes`, `page-fix-route` and `create-snapshots`
+
+```bash
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name France --relativePath /fr --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale fr --default --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Germany --relativePath /de --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale de --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Spain --relativePath /es --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale es --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Italy --relativePath /it --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale it --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name United Kingdom --relativePath /en --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale en --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Portugal --relativePath /pt --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale pt --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Belgium --relativePath /nl --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale nl --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Netherlands --relativePath /nl --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale nl --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Austria --relativePath /de --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale de --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Switzerland --relativePath /fr --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale fr --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Sweden --relativePath /sv --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale sv --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Norway --relativePath /no --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale no --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Finland --relativePath /fi --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale fi --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Denmark --relativePath /da --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale da --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Poland --relativePath /pl --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale pl --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Czech Republic --relativePath /cz --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale cz --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Slovakia --relativePath /sk --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale sk --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Hungary --relativePath /hu --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale hu --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Greece --relativePath /gr --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale gr --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Ireland --relativePath /ie --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale ie --no-confirmation
+docker compose exec -T www symfony console sonata:page:create-site --enabled --name Luxembourg --relativePath /lu --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale lu --no-confirmation
+```
+
 ### 8. Admin Access and Creating/Changing the Admin Password
 
 Create the Super Admin user. You can adjust the credentials as needed:
