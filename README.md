@@ -117,7 +117,7 @@ docker compose exec -T www symfony console sonata:extra:page-fix-route
 docker compose exec -T www symfony console sonata:page:create-snapshots
 ```
 
-You can enable more longs. Simply run one or all these lines and re-run the `update-core-routes`, `page-fix-route` and `create-snapshots`
+You can enable more lang. Simply run one or all these lines and re-run the `update-core-routes`, `page-fix-route` and `create-snapshots`
 
 ```bash
 docker compose exec -T www symfony console sonata:page:create-site --enabled --name France --relativePath /fr --host localhost --enabledFrom now --enabledTo 2030-10-18 --locale fr --default --no-confirmation
