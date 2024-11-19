@@ -84,6 +84,10 @@ services:
 #              group: admin
 #              label: Users
 #              translation_domain: 'menu'
+    Partitech\SonataExtra\EventListener\TranslationEntityListener:
+        tags:
+            - { name: doctrine.event_listener, event: postLoad }
+            - { name: doctrine.event_listener, event: postPersist }
 
     sonata.intl.timezone_detector.chain:
         class: Sonata\IntlBundle\Timezone\ChainTimezoneDetector
