@@ -34,7 +34,6 @@ class SonataClassificationCategory extends BaseCategory
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'children')]
     #[ORM\JoinColumn(name: 'parent_id', referencedColumnName: 'id', onDelete: 'SET NULL')]
-    #[ORM\Cascade(['persist', 'remove'])] // valid options : 'persist', 'remove', 'refresh', 'detach'
     protected ?CategoryInterface $parent = null;
 
 
